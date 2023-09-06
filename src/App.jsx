@@ -7,21 +7,22 @@ import Navbar from './components/Navbar';
 import Login from "./components/Login";
 import Reg from "./components/Reg";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useGlobalContext } from './context';
+
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const [signUp, setSignUp] = useState(false);
-
-  const handleLogin = (userData) => {
-    setUser(userData);
-  };
-
-  const handleLogout = () => {
-    setUser(null);
-  };
-
+ 
+  const {user,
+     setUser, 
+     signUp, 
+     setSignUp,
+     handleLogin,
+     handleLogout
+    } =  useGlobalContext()
+ 
   return (
     <div className='container'>
+ 
       <header>
         <nav>
           <Navbar
